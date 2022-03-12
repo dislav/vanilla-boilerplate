@@ -9,8 +9,8 @@ $fonts-roboto: (
 @each $font, $weight in $fonts-roboto {
     @font-face {
         font-family: $font-roboto-name;
-        src: url('../../assets/fonts/#{$font}.ttf') format('truetype'),
-            url('../../assets/fonts/#{$font}.woff') format('woff');
+        src: url('../assets/fonts/#{$font}.ttf') format('truetype'),
+            url('../assets/fonts/#{$font}.woff') format('woff');
         font-weight: $weight;
         font-style: normal;
         font-display: swap;
