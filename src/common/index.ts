@@ -1,24 +1,18 @@
 import barba, { IViewData } from '@barba/core';
 
 // Styles
-import '@common/scss/globals.scss';
+import '@styles/globals.scss';
 
-import views from '@common/views';
-import { findComponent } from '@common/utils';
+import pages from '@common/pages';
 
 // Common components
 import Header from '@components/header/header';
+import { findComponent } from '@common/utils';
 
 barba.init({
-    views,
+    views: pages,
 });
 
-let header: Header;
-
 barba.hooks.afterEnter((data: IViewData) => {
-    if (!header) {
-        header = new Header({ ...findComponent('header'), data });
-    } else {
-        header.updateActiveLink(data);
-    }
+    const header = new Header(findComponent('header'));
 });

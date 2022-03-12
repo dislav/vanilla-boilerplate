@@ -1,5 +1,9 @@
+include link/link
+
 mixin header
     header.header
         .header__wrapper
-            a.header__link(href="/" data-namespace="index") Home
-            a.header__link(href="/company.html" data-namespace="company") Company
+            +link({ title: 'Home', namespace: "index" })
+            +link({ title: 'Company', namespace: "company" })
+            +link({ title: 'Test', namespace: "test" })
+

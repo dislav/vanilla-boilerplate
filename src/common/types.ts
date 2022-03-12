@@ -5,8 +5,3 @@ export interface IRootComponent<T extends Element = Element> {
     node: T;
     data?: IViewData;
 }
-
-export interface IFindNode<T extends Element = Element> {
-    selector: string;
-    node: T;
-}

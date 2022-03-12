@@ -8,4 +8,5 @@ export default {
     components: path.resolve(srcPath, 'components'),
     layouts: path.resolve(srcPath, 'layouts'),
     pages: path.resolve(srcPath, 'pages'),
+    styles: path.resolve(srcPath, 'styles')
 };

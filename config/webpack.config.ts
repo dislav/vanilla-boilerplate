@@ -39,6 +39,7 @@ const config: Configuration = {
             '@components': paths.components,
             '@layouts': paths.layouts,
             '@pages': paths.pages,
+            '@styles': paths.styles
         },
     },
     plugins: [
