@@ -5,6 +5,7 @@
   "author": "Vladislav Grigoriev",
   "license": "MIT",
   "scripts": {
+    "develop": "concurrently --kill-others \"webpack serve --config ./config/webpack.dev.config.ts\" \"ts-node ./scripts/watch.ts\"",
     "dev": "webpack serve --config ./config/webpack.dev.config.ts & ts-node ./scripts/watch.ts",
     "build": "webpack --config ./config/webpack.prod.config.ts",
     "watch": "ts-node ./scripts/watch.ts",
@@ -32,6 +33,7 @@
     "camelcase": "^6.3.0",
     "chokidar": "^3.5.3",
     "clean-webpack-plugin": "^4.0.0",
+    "concurrently": "^7.0.0",
     "core-js": "^3.19.3",
     "css-loader": "^6.5.1",
     "eslint": "^8.4.1",
