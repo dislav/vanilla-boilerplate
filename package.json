@@ -5,7 +5,7 @@
   "author": "Vladislav Grigoriev",
   "license": "MIT",
   "scripts": {
-    "dev": "webpack serve --config ./config/webpack.dev.config.ts & yarn watch",
+    "dev": "webpack serve --config ./config/webpack.dev.config.ts & ts-node ./scripts/watch.ts",
     "build": "webpack --config ./config/webpack.prod.config.ts",
     "watch": "ts-node ./scripts/watch.ts",
     "generate:paths": "ts-node ./scripts/paths.ts",
