@@ -1,12 +1,18 @@
+import { BehaviorSubject, merge } from 'rxjs';
+
 import RootComponent from '@common/rootComponent';
 import { IRootComponent } from '@common/types';
-import { BehaviorSubject, fromEvent } from 'rxjs';
+
+import { findComponent, findComponents } from '@common/utils';
+import Button from '@components/button/button';
+import Input from '@components/input/input';
 
 class Counter extends RootComponent<HTMLDivElement> {
-    readonly input: HTMLInputElement;
-    readonly prevButton: HTMLButtonElement;
-    readonly nextButton: HTMLButtonElement;
-    readonly clickCount: HTMLDivElement;
+    readonly input: Input;
+    readonly prevButton: Button;
+    readonly nextButton: Button;
+
+    readonly clicksEl: HTMLDivElement;
 
     public count$ = new BehaviorSubject(0);
     public clickCount$ = new BehaviorSubject(0);
@@ -14,40 +20,47 @@ class Counter extends RootComponent<HTMLDivElement> {
     constructor(props: IRootComponent) {
         super(props);
 
-        this.input = this.node.querySelector(`.${this.name}__value`);
-        this.prevButton = this.node.querySelector<HTMLButtonElement>(
-            `.${this.name}__button-prev`
+        const buttons = findComponents<HTMLButtonElement>('button', {
+            node: this.node,
+        }).map((button) => new Button(button));
+
+        this.input = new Input(findComponent('input', { node: this.node }));
+        this.prevButton = buttons.find((button) =>
+            button.node.classList.contains(`${this.name}__button-prev`)
+        );
+        this.nextButton = buttons.find((button) =>
+            button.node.classList.contains(`${this.name}__button-next`)
         );
 
-        this.nextButton = this.node.querySelector<HTMLButtonElement>(
-            `.${this.name}__button-next`
-        );
+        this.clicksEl = this.findNode<HTMLDivElement>('clicks');
 
-        this.clickCount = this.node.querySelector(`.${this.name}__clicks`);
+        merge(this.prevButton.click$, this.nextButton.click$).subscribe((e) => {
+            const target = e.target as HTMLButtonElement;
+            const isPrev = target.classList.contains(
+                `${this.name}__button-prev`
+            );
 
-        fromEvent([this.prevButton, this.nextButton], 'click').subscribe(
-            (target) => {
-                const button = target.target as HTMLButtonElement;
-                const isPrev = button.classList.contains(
-                    `${this.name}__button-prev`
-                );
+            this.count$.next(this.count$.getValue() + (isPrev ? -1 : 1));
+            this.clickCount$.next(this.clickCount$.getValue() + 1);
+        });
 
-                const value = this.count$.getValue() + (isPrev ? -1 : 1);
-                this.setCount(value);
-                this.clickCount$.next(this.clickCount$.getValue() + 1);
+        this.count$.subscribe((value) => {
+            this.input.setValue(value.toString());
+
+            if (value >= 10) {
+                this.nextButton.node.setAttribute('disabled', 'disabled');
+            } else if (value <= -10) {
+                this.prevButton.node.setAttribute('disabled', 'disabled');
+            } else {
+                this.nextButton.node.removeAttribute('disabled');
+                this.prevButton.node.removeAttribute('disabled');
             }
-        );
-
-        this.count$.subscribe(
-            (target) => (this.input.value = target.toString())
-        );
+        });
 
         this.clickCount$.subscribe(
-            (target) => (this.clickCount.innerHTML = `Clicks: ${target}`)
+            (value) => (this.clicksEl.innerHTML = `Clicks: ${value}`)
         );
     }
-
-    public setCount = (count: number) => this.count$.next(count);
 }
 
 export default Counter;

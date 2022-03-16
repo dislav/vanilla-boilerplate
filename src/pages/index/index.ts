@@ -7,7 +7,6 @@ export default {
     namespace: 'index',
     beforeEnter(data: IViewData) {},
     afterEnter(data: IViewData) {
-        const counter = new Counter(findComponent('counter'));
-        console.log(counter);
+        new Counter(findComponent('counter'));
     },
 } as IView;

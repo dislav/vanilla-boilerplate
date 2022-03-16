@@ -1,7 +1,10 @@
 .counter {
-  &__value {
-    width: 60px;
-    margin: 0 4px;
+  display: flex;
+  flex-direction: column;
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
   }
 
   &__clicks {
