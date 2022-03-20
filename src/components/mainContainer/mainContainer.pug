@@ -1,0 +1,9 @@
+include ../../common/pug/openButton
+include ../modalWindow/modalWindow
+
+mixin mainContainer
+    .main-container&attributes(attributes)
+        h1 Значение счетчика на активном слайде
+        h2.main-container__count 5
+        +openButton.main-container__openButton
+        +modalWindow.main-container__modalWindow

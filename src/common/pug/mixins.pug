@@ -11,3 +11,19 @@ mixin picture(props)
                 source(srcset = source.srcset media=`(min-width: ${source.breakpoint}px)` || null)
         if (props.img)
             +img(props.img)
+
+mixin button(name)
+    button&attributes(attributes) #{name}
+        block 
+
+mixin swiper
+    .swiper&attributes(attributes)
+        .swiper-wrapper
+            .swiper-slide 
+                .swiper-slide__slide Slide 1
+            .swiper-slide 
+                .swiper-slide__slide Slide 2
+            .swiper-slide 
+                .swiper-slide__slide Slide 3
+        .swiper-button-next
+        .swiper-button-prev

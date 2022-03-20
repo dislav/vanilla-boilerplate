@@ -1,0 +1,63 @@
+.modal-window {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  max-width: 100%;
+  min-height: 100%;
+  z-index: 999;
+  background-color: white;
+  transform: translateY(1000px);
+  transition: transform 0.3s ease-in-out;
+
+  &__button {
+    margin: 0 auto;
+  }
+
+  &__body {
+    min-width: 0;
+  }
+
+  &__counter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & button {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: none;
+      background-color: #3877ee;
+    }
+  }
+
+  &__value {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 2px solid #303e58;
+    margin: 0 53px;
+  }
+
+  & .swiper-slide {
+    text-align: center;
+
+    &__slide {
+      width: 70%;
+      height: 60vh;
+      background-color: #3877ee;
+      margin: 0 auto;
+    }
+  }
+}
+
+.is-open {
+  transform: translateY(0);
+}

@@ -1,0 +1,13 @@
+include ../../common/pug/closeButton
+include ../../common/pug/mixins
+
+mixin modalWindow
+    .modal-window&attributes(attributes)
+        .modal-window__button
+            +closeButton.modal-window__closeButton
+        .modal-window__body
+            +swiper.modal-window__swiper
+        .modal-window__counter
+            button.modal-window__button-prev -
+            .modal-window__value 0
+            button.modal-window__button-next +

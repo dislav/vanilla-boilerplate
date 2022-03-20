@@ -13,7 +13,15 @@ pages.pages.forEach((page) =>
 );
 console.log('');
 
-const developmentConfig: Configuration = {
+interface DevConfiguration extends Configuration {
+    devServer?: {
+        port?: number;
+        hot?: boolean;
+        open?: boolean;
+    };
+}
+
+const developmentConfig: DevConfiguration = {
     mode: 'development',
     optimization: {
         runtimeChunk: 'single',
