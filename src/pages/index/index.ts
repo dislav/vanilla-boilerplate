@@ -1,10 +1,12 @@
 import { IView, IViewData } from '@barba/core';
 
-import { findComponent } from '@common/utils';
+import { findComponent, findComponents } from '@common/utils';
 // import Counter from '@components/counter/counter';
 import CounterOfActiveSlide from '@components/counterOfActiveSlide/counterOfActiveSlide';
 import ModalWindow from '@components/modalWindow/modalWindow';
 import Slider from '@components/slider/slider';
+import SlideCounter from '@components/slideCounter/slideCounter';
+
 import { Swiper, SwiperOptions } from 'swiper';
 
 export default {
@@ -35,6 +37,12 @@ export default {
             findComponent('counterOfActiveSlide', 'counter-of-active-slide'),
             modalWindow
         );
+        const slideCounters = findComponents(
+            'slideCounter',
+            'slide-counter'
+        ).forEach((slideCounter) => {
+            return new SlideCounter(slideCounter);
+        });
         const slider = new Slider(findComponent('slider'), swiper);
         // counterOfActiveSlide.nextCount();
         // console.log(counterOfActiveSlide, 'Это мой counter!');
