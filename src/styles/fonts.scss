@@ -1,0 +1,18 @@
+@font-face {
+  font-family: Roboto;
+  src:
+    url('../assets/fonts/Roboto-Regular.woff') format('woff'),
+    url('../assets/fonts/Roboto-Regular.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: Roboto;
+  src:
+    url('../assets/fonts/Roboto-bold.woff') format('woff'),
+    url('../assets/fonts/Roboto-bold.woff2') format('woff2'),
+    url('../assets/fonts/Roboto-bold.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 700;
+}
