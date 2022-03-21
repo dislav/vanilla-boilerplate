@@ -45,6 +45,9 @@ class ModalWindow extends RootComponent<HTMLDivElement> {
         this.setIndex = this.setCurrentIndex.bind(this);
 
         this.swiper = new Swiper(`.${this.name}__swiper`, this.swaiperOptions);
+        this.swiper.on('slideChange', (swiper) => {
+            this.setIndex(swiper.activeIndex);
+        });
 
         this.currentValue$.subscribe((target) => {
             this.slideValue.textContent = `${target}`;
@@ -71,9 +74,6 @@ class ModalWindow extends RootComponent<HTMLDivElement> {
             }
         );
 
-        this.swiper.on('slideChange', (swiper) => {
-            this.setIndex(swiper.activeIndex);
-        });
     }
     private setCurrentIndex(index: number): void {
         this.currentIndex$.next(index);

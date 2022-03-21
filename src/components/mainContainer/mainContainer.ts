@@ -12,7 +12,7 @@ class MainContainer extends RootComponent<HTMLDivElement> {
     constructor(props: IRootComponent) {
         super(props);
 
-        this.modalWindow = new ModalWindow(findComponent('modalWindow'));
+        this.modalWindow = new ModalWindow(findComponent('modal-window'));
         this.openButton = this.node.querySelector(`.${this.name}__openButton`);
         this.count = this.node.querySelector(`.${this.name}__count`);
 

@@ -1,7 +1,7 @@
 @import '~modern-normalize/modern-normalize.css';
 @import 'pages';
 @import 'components';
-@import 'swiper/css';
+@import 'swiper/css/bundle';
 
 .common-button {
   background-color: #3877ee;
@@ -10,4 +10,5 @@
   min-width: 147px;
   border-radius: 30px;
   border: none;
+  cursor: pointer;
 }

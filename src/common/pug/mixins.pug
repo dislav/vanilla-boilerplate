@@ -16,14 +16,12 @@ mixin button(name)
     button&attributes(attributes) #{name}
         block 
 
-mixin swiper
+mixin swiper(count)
     .swiper&attributes(attributes)
         .swiper-wrapper
-            .swiper-slide 
-                .swiper-slide__slide Slide 1
-            .swiper-slide 
-                .swiper-slide__slide Slide 2
-            .swiper-slide 
-                .swiper-slide__slide Slide 3
+            - let i = 0
+            while i < count
+                .swiper-slide 
+                    .swiper-slide__slide Slide #{++i}
         .swiper-button-next
         .swiper-button-prev
