@@ -1,3 +1,5 @@
+include ../slideCounter/slideCounter
+
 mixin slider
     .slider&attributes(attributes)
         button.slider__button.swiper-button-prev
@@ -6,25 +8,25 @@ mixin slider
             .swiper-wrapper
                 .swiper-slide
                     +img({src: '/images/-oGsMDwOiZs.jpg', alt: 'изображение на первом слайде'})
-                    .counter
+                    +slideCounter
                 .swiper-slide 
                     +img({src: '/images/0a9dXDYfdoE.jpg', alt: 'изображение на втором слайде'})
-                    .counter
+                    +slideCounter
                 .swiper-slide
                     +img({src: '/images/3WJHkrKRqgQ.jpg', alt: 'изображение на третьем слайде'})
-                    .counter
+                    +slideCounter
                 .swiper-slide
                     +img({src: '/images/17-46m72KoE.jpg', alt: 'изображение на четвертом слайде'})
-                    .counter
+                    +slideCounter
                 .swiper-slide
                     +img({src: '/images/PX-v2QJ4UI4.jpg', alt: 'изображение на пятом слайде'})
-                    .counter
+                    +slideCounter
                 .swiper-slide
                     +img({src: '/images/T6SFVwDm2wE.jpg', alt: 'изображение на шестом слайде'})
-                    .counter
+                    +slideCounter
                 .swiper-slide
                     +img({src: '/images/u_lc8_8bRjY.jpg', alt: 'изображение на седьмом слайде'})
-                    .counter
+                    +slideCounter
         button.slider__button.swiper-button-next
             +svg('arrow')
         
