@@ -6,13 +6,13 @@ class CounterOfActiveSlide extends RootComponent {
     readonly button: HTMLButtonElement;
 
     public count: number;
-    public buttonAction: any;
+    public modalObject: any;
 
-    constructor(props: IRootComponent, buttonAction: any) {
+    constructor(props: IRootComponent, modalObject: any) {
         // поставить нормальный тип
         super(props);
 
-        this.buttonAction = buttonAction;
+        this.modalObject = modalObject;
 
         this.counter = this.node.querySelector(`.${this.name}__counter`);
         this.button = this.node.querySelector(`.${this.name}__button`);
@@ -21,14 +21,14 @@ class CounterOfActiveSlide extends RootComponent {
         this.counter.innerHTML = this.count.toString();
 
         this.button.addEventListener('click', () => {
-            this.nextCount();
+            this.openTheWindow();
         });
     }
 
-    nextCount() {
-        this.count++;
-        this.counter.innerHTML = this.count.toString();
-        this.buttonAction();
+    openTheWindow() {
+        // this.count++;
+        // this.counter.innerHTML = this.count.toString();
+        this.modalObject.openTheWindow();
     }
 }
 
