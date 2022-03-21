@@ -19,10 +19,7 @@ export default {
             slideActiveClass: 'swiper-active-slide',
         };
 
-        const swiper = new Swiper(
-            document.querySelector('.swiper'),
-            swiperParams
-        );
+        const swiper = new Swiper('.swiper', swiperParams);
         const slideCounters = findComponents(
             'slideCounter',
             'slide-counter'
