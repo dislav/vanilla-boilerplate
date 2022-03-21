@@ -13,29 +13,15 @@ export default {
     namespace: 'index',
     beforeEnter(data: IViewData) {},
     afterEnter(data: IViewData) {
-        // const counter = new Counter(findComponent('counter'));
-        // function buttonAction() {
-        //     console.log('Действие выполнено!!!');
-        // }
-
         const swiperParams: SwiperOptions = {
             slidesPerView: 1,
             spaceBetween: 50,
             slideActiveClass: 'swiper-active-slide',
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
         };
 
-        const swiper = new Swiper('.swiper', swiperParams);
-
-        const modalWindow = new ModalWindow(
-            findComponent('modalWindow', 'modal-window')
-        );
-        const counterOfActiveSlide = new CounterOfActiveSlide(
-            findComponent('counterOfActiveSlide', 'counter-of-active-slide'),
-            modalWindow
+        const swiper = new Swiper(
+            document.querySelector('.swiper'),
+            swiperParams
         );
         const slideCounters = findComponents(
             'slideCounter',
@@ -43,8 +29,13 @@ export default {
         ).forEach((slideCounter) => {
             return new SlideCounter(slideCounter);
         });
+        const modalWindow = new ModalWindow(
+            findComponent('modalWindow', 'modal-window')
+        );
         const slider = new Slider(findComponent('slider'), swiper);
-        // counterOfActiveSlide.nextCount();
-        // console.log(counterOfActiveSlide, 'Это мой counter!');
+        const counterOfActiveSlide = new CounterOfActiveSlide(
+            findComponent('counterOfActiveSlide', 'counter-of-active-slide'),
+            modalWindow
+        );
     },
 } as IView;

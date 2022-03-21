@@ -8,6 +8,8 @@ class Slider extends RootComponent {
     constructor(props: IRootComponent, swiper) {
         super(props);
 
+        // Здесь слайды внутри swiper видны!
+        // this.slides = swiper.slides
         this.buttonNext = this.node.querySelector('.swiper-button-next');
         this.buttonPrev = this.node.querySelector('.swiper-button-prev');
 
