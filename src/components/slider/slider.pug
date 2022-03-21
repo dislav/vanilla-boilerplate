@@ -1,0 +1,16 @@
+mixin slider
+    .slider&attributes(attributes)
+        button.slider__button-prev.swiper-button-prev -
+        .swiper.slider__swiper
+            .swiper-wrapper
+                .swiper-slide
+                    div.img
+                    //- +counter.swiper-slide-one-counter 
+                .swiper-slide 
+                    div.img
+                    //- +counter.swiper-slide-two-counter
+                .swiper-slide
+                    div.img
+                    //- +counter.swiper-slide-free-counter
+        button.slider__button-next.swiper-button-next +
+        
