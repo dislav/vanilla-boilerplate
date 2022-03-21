@@ -1,0 +1,13 @@
+.counter {
+  &__value {
+    width: 60px;
+    margin: 0 4px;
+  }
+
+  &__clicks {
+    text-align: center;
+    margin-top: 10px;
+    font-family: Roboto, sans-serif;
+    font-weight: 700;
+  }
+}

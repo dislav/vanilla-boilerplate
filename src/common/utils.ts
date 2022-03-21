@@ -1,10 +1,11 @@
 import { IRootComponent } from '@common/types';
 
 export const findComponent = <T extends Element = Element>(
-    name: string
+    name: string,
+    secondName?: string
 ): IRootComponent<T> => ({
-    name,
-    node: document.querySelector(`.${name}`),
+    name: secondName ? secondName : name,
+    node: document.querySelector(`.${secondName ? secondName : name}`),
 });
 
 export const findComponents = <T extends Element = Element>(
