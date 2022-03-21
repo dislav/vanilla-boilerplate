@@ -1,0 +1,46 @@
+.slide-counter {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 50px 0;
+
+  &__container {
+    display: flex;
+    align-items: center;
+  }
+
+  .slide-counter-button {
+    width: 40px;
+    height: 40px;
+    background-color: $color-2;
+    border: none;
+    border-radius: 100%;
+    color: $color-white;
+    font-size: 20px;
+    vertical-align: middle;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .slide-counter-button:hover {
+    transform: scale(0.8);
+    background-color: $color-1;
+  }
+
+  &__counter {
+    width: 56px;
+    height: 56px;
+    background: $color-4;
+    border: 2px solid $color-3;
+    border-radius: 100%;
+    text-align: center;
+    vertical-align: middle;
+    margin: 0 50px;
+    font-family: 'Cera Pro', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 56px;
+    color: $color-1;
+  }
+}
