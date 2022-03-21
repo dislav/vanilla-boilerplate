@@ -9,9 +9,12 @@ export const findComponent = <T extends Element = Element>(
 });
 
 export const findComponents = <T extends Element = Element>(
-    name: string
+    name: string,
+    secondName?: string
 ): IRootComponent<T>[] =>
-    Array.from(document.querySelectorAll(`.${name}`)).map((node: T) => ({
-        name,
+    Array.from(
+        document.querySelectorAll(`.${secondName ? secondName : name}`)
+    ).map((node: T) => ({
+        name: secondName ? secondName : name,
         node,
     }));
