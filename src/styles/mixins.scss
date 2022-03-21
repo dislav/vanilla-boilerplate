@@ -1,0 +1,30 @@
+$breakponts: (
+  sm: 375px,
+  smd: 500px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1280px,
+  xxl: 1440px,
+  fhd: 1920px,
+);
+
+// @mixin media-breakpoint-up($name, $px: 0) {
+//     @each $breakpoint-name, $resolution in $breakponts {
+//             @if $name == $breakpoint-name {
+//                 $result = $resolution + $px;
+//                 @media (min-width: $resolution + $px) {
+//                     @content;
+//             }
+//         }
+//     }
+// }
+
+// @mixin media-breakpoint-down($name, $px: 0) {
+//     @each $breakpoint-name, $resolution in $breakponts {
+//         @if $name == $breakpoint-name {
+//             @media (max-width: $resolution + $px) {
+//                 @content;
+//             }
+//         }
+//     }
+// }
