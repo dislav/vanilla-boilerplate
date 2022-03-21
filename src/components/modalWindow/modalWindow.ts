@@ -73,7 +73,6 @@ class ModalWindow extends RootComponent<HTMLDivElement> {
                 this.currentValue$.next(value);
             }
         );
-
     }
     private setCurrentIndex(index: number): void {
         this.currentIndex$.next(index);
