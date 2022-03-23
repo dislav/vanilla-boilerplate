@@ -1,32 +1,25 @@
-include ../slideCounter/slideCounter
-
 mixin slider
+    //- - var url = ['/images/-oGsMDwOiZs.jpg'];  
+    //- - var url2 = {url: '/images/0a9dXDYfdoE.jpg'};
+    //- - var urls = [{url: '/images/3WJHkrKRqgQ.jpg'}, {url: '/images/0a9dXDYfdoE.jpg'}];
+    - var img1Url = '/images/-oGsMDwOiZs.jpg';
+    - var img2Url = '/images/0a9dXDYfdoE.jpg' ;
+    - var img3Url = '/images/3WJHkrKRqgQ.jpg';
+    - var img4Url = '/images/17-46m72KoE.jpg';
+    - var img5Url = '/images/PX-v2QJ4UI4.jpg';
+    - var img6Url = '/images/T6SFVwDm2wE.jpg';
+    - var img7Url = '/images/u_lc8_8bRjY.jpg';
+    - var imgUrls = [img1Url, img2Url, img3Url, img4Url, img5Url, img6Url, img7Url];
+
     .slider&attributes(attributes)
         button.slider__button.swiper-button-prev
             +svg('arrow')
         .swiper
             .swiper-wrapper
-                .swiper-slide
-                    +img({src: '/images/-oGsMDwOiZs.jpg', alt: 'изображение на первом слайде'})
-                    +slideCounter
-                .swiper-slide 
-                    +img({src: '/images/0a9dXDYfdoE.jpg', alt: 'изображение на втором слайде'})
-                    +slideCounter
-                .swiper-slide
-                    +img({src: '/images/3WJHkrKRqgQ.jpg', alt: 'изображение на третьем слайде'})
-                    +slideCounter
-                .swiper-slide
-                    +img({src: '/images/17-46m72KoE.jpg', alt: 'изображение на четвертом слайде'})
-                    +slideCounter
-                .swiper-slide
-                    +img({src: '/images/PX-v2QJ4UI4.jpg', alt: 'изображение на пятом слайде'})
-                    +slideCounter
-                .swiper-slide
-                    +img({src: '/images/T6SFVwDm2wE.jpg', alt: 'изображение на шестом слайде'})
-                    +slideCounter
-                .swiper-slide
-                    +img({src: '/images/u_lc8_8bRjY.jpg', alt: 'изображение на седьмом слайде'})
-                    +slideCounter
+                each url in imgUrls
+                    .swiper-slide
+                        +img({src: url, alt: 'изображение на первом слайде'}).one
+                        +slideCounter
         button.slider__button.swiper-button-next
             +svg('arrow')
         

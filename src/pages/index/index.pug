@@ -1,16 +1,14 @@
 extends ../../layouts/base
-//- include ../../components/counter/counter
 include ../../components/counterOfActiveSlide/counterOfActiveSlide
 include ../../components/modalWindow/modalWindow
 include ../../components/slider/slider
+include ../../components/slideCounter/slideCounter
 
 block head
     title Home
 
 block content
     main(data-barba="container" data-barba-namespace="index").index
-        //- +svg('code').index__icon
-        //- +counter
         +counterOfActiveSlide
         +modalWindow
             +slider
