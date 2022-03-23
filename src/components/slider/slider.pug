@@ -18,7 +18,7 @@ mixin slider
             .swiper-wrapper
                 each url in imgUrls
                     .swiper-slide
-                        +img({src: url, alt: 'изображение на первом слайде'}).one
+                        +img({src: url, alt: 'картинка'})
                         +slideCounter
         button.slider__button.swiper-button-next
             +svg('arrow')
