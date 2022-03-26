@@ -1,9 +1,4 @@
 mixin slider
-    //- - var url = ['/images/-oGsMDwOiZs.jpg'];  
-    //- - var url2 = {url: '/images/0a9dXDYfdoE.jpg'};
-    //- - var urls = [{url: '/images/3WJHkrKRqgQ.jpg'}, {url: '/images/0a9dXDYfdoE.jpg'}];
-
-    //- Переменные с приметивным значением проходят через each in цикл 
     - var img1Url = '/images/-oGsMDwOiZs.jpg';
     - var img2Url = '/images/0a9dXDYfdoE.jpg' ;
     - var img3Url = '/images/3WJHkrKRqgQ.jpg';
@@ -12,43 +7,15 @@ mixin slider
     - var img6Url = '/images/T6SFVwDm2wE.jpg';
     - var img7Url = '/images/u_lc8_8bRjY.jpg';
 
-    //- Переменные с объектами и массивами нет 
-    //- - var img1Data = {url: '/images/-oGsMDwOiZs.jpg', alt: 'первом'};
-    //- - var img1Data = {url: '/images/0a9dXDYfdoE.jpg', alt: 'втором'};
-    //- - var img1Data = {url: '/images/3WJHkrKRqgQ.jpg', alt: 'третьем'};
-    //- - var img1Data = {url: '/images/17-46m72KoE.jpg', alt: 'четвертом'};
-    //- - var img1Data = {url: '/images/PX-v2QJ4UI4.jpg', alt: 'пятом'};
-    //- - var img1Data = {url: '/images/T6SFVwDm2wE.jpg', alt: 'шестом'};
-    //- - var img1Data = {url: '/images/u_lc8_8bRjY.jpg', alt: 'седьмом'};
-
-    //- - var img1Data = ['/images/-oGsMDwOiZs.jpg', 'первом'];
-    //- - var img1Data = ['/images/0a9dXDYfdoE.jpg', 'втором'];
-    //- - var img1Data = ['/images/3WJHkrKRqgQ.jpg', 'третьем'];
-    //- - var img1Data = ['/images/17-46m72KoE.jpg', 'четвертом'];
-    //- - var img1Data = ['/images/PX-v2QJ4UI4.jpg', 'пятом'];
-    //- - var img1Data = ['/images/T6SFVwDm2wE.jpg', 'шестом'];
-    //- - var img1Data = ['/images/u_lc8_8bRjY.jpg', 'седьмом'];
-
-    //- Массив из переменных, содержащих приметивные типы
-    - var imgUrls = [img1Url, img2Url, img3Url, img4Url, img5Url, img6Url, img7Url];
-    //- Массив из переменных, содержащих массивы или объекты
-    //- - var imgData = [img1Data, img2Data, img3Data, img4Data, img5Data, img6Data, img7Data];
+    - var imgUrls = {первого: img1Url, второго: img2Url, третьего: img3Url, четвертого: img4Url, пятого: img5Url, шестого: img6Url, седьмого: img7Url};
 
     .slider&attributes(attributes)
         button.slider__button.swiper-button-prev
             +svg('arrow')
         .swiper
             .swiper-wrapper
-                //- Цикл, который рендерит слайды с данными из переменных с приметивными типами
-                each url in imgUrls
-                    .swiper-slide
-                        +img({src: url, alt: 'изображение'})
-                        +slideCounter
-                //- Цикл, который рендерит слайды с данных из переменных, содержащих массивы и объекты  
-                //- each data in imgData
-                //-     .swiper-slide
-                //-         +img({src: data[0], alt: `Изображение на ${data[1]} слайде`})
-                //-         +slideCounter
+                each url, key in imgUrls
+                    +swiperSlide(url, key)
         button.slider__button.swiper-button-next
             +svg('arrow')
         
