@@ -1,7 +1,4 @@
 mixin slider
-    //- - var url = ['/images/-oGsMDwOiZs.jpg'];  
-    //- - var url2 = {url: '/images/0a9dXDYfdoE.jpg'};
-    //- - var urls = [{url: '/images/3WJHkrKRqgQ.jpg'}, {url: '/images/0a9dXDYfdoE.jpg'}];
     - var img1Url = '/images/-oGsMDwOiZs.jpg';
     - var img2Url = '/images/0a9dXDYfdoE.jpg' ;
     - var img3Url = '/images/3WJHkrKRqgQ.jpg';
@@ -9,17 +6,16 @@ mixin slider
     - var img5Url = '/images/PX-v2QJ4UI4.jpg';
     - var img6Url = '/images/T6SFVwDm2wE.jpg';
     - var img7Url = '/images/u_lc8_8bRjY.jpg';
-    - var imgUrls = [img1Url, img2Url, img3Url, img4Url, img5Url, img6Url, img7Url];
+
+    - var imgUrls = {первого: img1Url, второго: img2Url, третьего: img3Url, четвертого: img4Url, пятого: img5Url, шестого: img6Url, седьмого: img7Url};
 
     .slider&attributes(attributes)
         button.slider__button.swiper-button-prev
             +svg('arrow')
         .swiper
             .swiper-wrapper
-                each url in imgUrls
-                    .swiper-slide
-                        +img({src: url, alt: 'картинка'})
-                        +slideCounter
+                each url, key in imgUrls
+                    +swiperSlide(url, key)
         button.slider__button.swiper-button-next
             +svg('arrow')
         

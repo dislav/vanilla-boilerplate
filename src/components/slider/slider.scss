@@ -38,27 +38,9 @@
     .swiper-wrapper {
       width: 100%;
 
-      .swiper-slide {
-        img {
-          width: 100%;
+      // .swiper-slide {
 
-          // max-height: 700px;
-          // min-height: 300px;
-          height: 700px;
-          object-fit: cover;
-          object-position: center center;
-
-          // @media(max-width: 1280px) {
-          //   height: 400px;
-          // }
-        }
-
-        .counter {
-          width: 100%;
-          height: 110px;
-          background: black;
-        }
-      }
+      // }
     }
   }
 }

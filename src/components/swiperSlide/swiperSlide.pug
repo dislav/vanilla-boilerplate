@@ -1,0 +1,4 @@
+mixin swiperSlide(url, key)
+    .swiper-slide&attributes(attributes)
+        +img({src: url, alt: `Изображение ${key} слайда`})
+        +slideCounter
