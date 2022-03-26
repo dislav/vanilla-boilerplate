@@ -2,5 +2,5 @@ mixin counterOfActiveSlide
     .counter-of-active-slide&attributes(attributes)
         h1.counter-of-active-slide__header Значение счетчика на активном слайде:
         .counter-of-active-slide__counter 0
-        button.counter-of-active-slide__button Открыть
+        +button('Открыть')(class="counter-of-active-slide__button")
         

@@ -8,25 +8,4 @@
   flex-direction: column;
   align-items: center;
   background: $color-white;
-
-  &__button {
-    font-family: Roboto, sans-serif;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 19px;
-    text-align: center;
-    color: $color-white;
-    width: 152px;
-    height: 63px;
-    border-radius: 30px;
-    border: none;
-    background: $color-2;
-    cursor: pointer;
-    transition: background 0.1s ease-in-out;
-    margin-top: 30px;
-  }
-
-  &__button:hover {
-    background: $color-1;
-  }
 }

@@ -1,5 +1,5 @@
 mixin modalWindow
     .modal-window&attributes(attributes).is-close
-        button.modal-window__button Закрыть
+        +button('Закрыть')(class="modal-window__button")
         +slider
         
