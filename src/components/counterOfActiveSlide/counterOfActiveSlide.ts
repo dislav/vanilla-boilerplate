@@ -1,14 +1,15 @@
 import RootComponent from '@common/rootComponent';
 import { IRootComponent } from '@common/types';
+import ModalWindow from '@components/modalWindow/modalWindow';
 
 class CounterOfActiveSlide extends RootComponent {
     readonly counter: HTMLDivElement;
     readonly button: HTMLButtonElement;
 
     public count: number;
-    public modalObject: any;
+    public modalObject: ModalWindow;
 
-    constructor(props: IRootComponent, modalObject: any) {
+    constructor(props: IRootComponent, modalObject: ModalWindow) {
         super(props);
 
         this.modalObject = modalObject;
@@ -25,8 +26,6 @@ class CounterOfActiveSlide extends RootComponent {
 
     openTheWindow() {
         this.modalObject.openTheWindow();
-        // this.count = this.modalObject.counterOfActiveSlide;
-        // this.counter.innerHTML = this.count.toString();
     }
 }
 
